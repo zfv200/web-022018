@@ -10,8 +10,11 @@ class Task {
   }
 
   static renderAll(){
-    debugger;
     return store.tasks.slice().map(task=>task.render()).join("")
+  }
+
+  delete(task){
+    store.tasks.splice(store.tasks.indexOf(task), 1)
   }
 
   edit(){

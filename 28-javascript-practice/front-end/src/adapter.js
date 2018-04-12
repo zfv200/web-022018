@@ -7,6 +7,11 @@ class Adapter{
     return fetch('http://localhost:3000/tasks', {
       headers: {'Content-Type':'application/json'},
       method: 'get'
+    }).then(r=>r.json()).then(json=>{
+      let taskContainer = document.getElementById('task-container')
+      store.tasks = []
+      json.forEach(task=>new Task(task.description, task.priority, task.completed, task.id))
+      taskContainer.innerHTML = store.tasks.map(task=>task.render()).join("")
     })
   }
 

@@ -23,13 +23,7 @@ document.addEventListener('DOMContentLoaded', e=>{
   })
 
 
-  adapter.get().then(r=>r.json()).then(json=>{
-    let taskContainer = document.getElementById('task-container')
-    store.tasks = []
-    json.forEach(task=>new Task(task.description, task.priority, task.completed, task.id))
-    debugger;
-    Task.renderAll()
-  })
+  adapter.get()
 
 
 })
